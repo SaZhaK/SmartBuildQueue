@@ -3,7 +3,7 @@ import org.jetbrains.annotations.NotNull;
 import java.time.Duration;
 import java.time.LocalTime;
 
-public class Train {
+public class Train implements Comparable{
     private int number;
     private LocalTime arrival;
     private Duration unloadingTime;
@@ -52,5 +52,15 @@ public class Train {
                 ", arrival = " + arrival +
                 ", unloadingTime = " + unloadingTime.toMinutes() +
                 ", income = " + income;
+    }
+
+    @Override
+    public int compareTo(@NotNull Object object) {
+        if (!(object instanceof Train)) {
+            throw new ClassCastException("Impossible to compare objects of different types");
+        } else {
+            if (((Train) object).getIncome() == this.income) return 0;
+            else return ((Train) object).getIncome() > this.getIncome() ? 1 : -1;
+        }
     }
 }

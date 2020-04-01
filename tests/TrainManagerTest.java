@@ -75,18 +75,18 @@ class TrainManagerTest {
     @Test
     void getResultingList() {
         List<Train> trains = new ArrayList<>();
-        trains.add(new Train(1, LocalTime.of(15, 0), Duration.ofMinutes(30), 12));
-        trains.add(new Train(2, LocalTime.of(12, 0), Duration.ofMinutes(20), 10));
-        trains.add(new Train(3, LocalTime.of(12, 10), Duration.ofMinutes(40), 15));
-        trains.add(new Train(4, LocalTime.of(15, 20), Duration.ofMinutes(10), 20));
+        trains.add(new Train(1, LocalTime.of(15, 20), Duration.ofMinutes(10), 20));
+        trains.add(new Train(2, LocalTime.of(12, 10), Duration.ofMinutes(40), 15));
+        trains.add(new Train(3, LocalTime.of(15, 0), Duration.ofMinutes(30), 12));
+        trains.add(new Train(4, LocalTime.of(12, 0), Duration.ofMinutes(20), 10));
         trains.add(new Train(5, LocalTime.of(17, 40), Duration.ofMinutes(20), 5));
 
         TrainManager manager = new TrainManager(trains);
 
         List<Train> resultList = manager.getResultingList();
 
-        assertEquals(trains.get(2), resultList.get(0));
-        assertEquals(trains.get(3), resultList.get(1));
+        assertEquals(trains.get(0), resultList.get(0));
+        assertEquals(trains.get(1), resultList.get(1));
         assertEquals(trains.get(4), resultList.get(2));
     }
 

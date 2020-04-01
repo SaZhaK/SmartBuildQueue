@@ -2,6 +2,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class TrainManager {
@@ -12,6 +13,7 @@ public class TrainManager {
         result = new Stack();
         leftTrains = new Stack();
 
+        Collections.sort(trains);
         for (int i = trains.size() - 1; i >= 0; --i) {
             leftTrains.push(trains.get(i));
         }
