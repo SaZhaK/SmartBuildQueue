@@ -8,7 +8,7 @@ import java.util.List;
 public class TrainManager {
     private Stack result;
     private Stack leftTrains;
-
+    
     public TrainManager(@NotNull List<Train> trains) {
         result = new Stack();
         leftTrains = new Stack();
@@ -19,6 +19,9 @@ public class TrainManager {
         }
     }
 
+    /**
+     * @return list with chosen trains to be unloaded
+     */
     public List<Train> getResultingList() {
         countBest();
 
@@ -29,6 +32,9 @@ public class TrainManager {
         return trains;
     }
 
+    /**
+     * @return possible amount of money for the input list of trains
+     */
     public double countResult() {
         countBest();
 
